@@ -1,0 +1,60 @@
+# MediaWiki configuration files
+/mediawiki-dev/LocalSettings.php
+
+# Cache and temp files
+**/.history/
+/cache/
+/images/temp/
+/images/deleted/
+/maintenance/.mweval_history
+/maintenance/.mwsql_history
+
+# user-specific files
+/images/[0-9a-f]/
+/images/archive/
+/images/thumb/
+/images/transcoded/
+
+# database dumps
+*.sqlite
+*.db
+*.sql
+*.gz
+*.bz2
+*.7z
+*.dump
+
+# logs
+*.log
+/logs/
+
+# Composer
+/vendor/
+
+# Docker data
+/data/
+/db_data/
+
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# compiled output
+node_modules/
+.sass-cache/
+composer.phar
+
+# development tools
+/mw-config/
+/tests/phpunit/phpunit.phar
+
+# local private settings
+/private/
+.env
+
+# Unhint if change Mediawiki core
+# /extensions/
+# /skins/
