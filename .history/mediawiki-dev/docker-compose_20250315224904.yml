@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  mediawiki:
+    image: mediawiki:latest
+    ports:
+      - "8080:80"
+    volumes:
+      - ./data:/var/www/data
+      - ./images:/var/www/html/images
+      - ./extensions:/var/www/html/extensions
+      - ./skins:/var/www/html/skins
+      - ./LocalSettings.php:/var/www/html/LocalSettings.php
+    depends_on:
+      - database
+    restart: unless-stopped
+
+  database:
+    image: mariadb:latest
+    environment:
+      MYSQL_DATABASE: mediawiki
+      MYSQL_USER: wikiuser
+      MYSQL_PASSWORD: wikipass
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  db_data:
